@@ -1,5 +1,7 @@
 {
   "dependencies": {
-    "ffmpeg": "^0.0.4"
+    "ffmpeg": "^0.0.4",
+    "ffmpeg-static": "^5.2.0",
+    "fluent-ffmpeg": "^2.1.2"
   }
 }
