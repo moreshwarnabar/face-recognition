@@ -1,7 +1,9 @@
 {
   "dependencies": {
+    "aws-sdk": "^2.1583.0",
     "ffmpeg-static": "^5.2.0",
-    "fluent-ffmpeg": "^2.1.2"
+    "fluent-ffmpeg": "^2.1.2",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@types/node": "^20.11.30"
