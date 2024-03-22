@@ -6,16 +6,16 @@ export async function videoSplitter(video) {
   createDirectory(dirName);
   console.log(dirName);
 
-  // await new Promise((resolve, reject) => {
-  //   ffmpeg()
-  //     .input(video)
-  //     .inputFPS(1)
-  //     .seekInput(0)
-  //     .frames(10)
-  //     .videoFilters('fps=1/10')
-  //     .save('tmp/output-%02d.jpg')
-  //     .on('start', commandLine => console.log('Command: ' + commandLine))
-  //     .on('end', () => resolve())
-  //     .on('error', error => reject(new Error(error)));
-  // });
+  await new Promise((resolve, reject) => {
+    ffmpeg()
+      .input(video)
+      .inputFPS(1)
+      .seekInput(0)
+      .frames(10)
+      .videoFilters('fps=1/10')
+      .save('tmp/output-%02d.jpg')
+      .on('start', commandLine => console.log('Command: ' + commandLine))
+      .on('end', () => resolve())
+      .on('error', error => reject(new Error(error)));
+  });
 }
