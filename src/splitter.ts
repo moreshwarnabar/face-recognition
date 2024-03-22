@@ -1,7 +1,7 @@
 import ffmpeg from 'fluent-ffmpeg';
 import { createDirectory } from './createDir.js';
 
-export async function videoSplitter(video) {
+export const videoSplitter = async (video: string) => {
   const dirName = video.split('.')[0].split('/')[1];
   createDirectory(dirName);
   console.log(dirName);
@@ -18,4 +18,4 @@ export async function videoSplitter(video) {
       .on('end', () => resolve())
       .on('error', error => reject(new Error(error)));
   });
-}
+};
