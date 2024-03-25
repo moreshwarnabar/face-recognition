@@ -3,7 +3,7 @@ import { createDirectory } from './createDir';
 
 export const videoSplitter = async (video: string) => {
   const dirName = video.split('.')[0].split('/')[1];
-  createDirectory(dirName);
+  createDirectory('tmp/', dirName);
 
   await new Promise<void>((resolve, reject) => {
     ffmpeg()
@@ -12,7 +12,7 @@ export const videoSplitter = async (video: string) => {
       .seekInput(0)
       .frames(10)
       .videoFilters('fps=1/10')
-      .save(`tmp/${dirName}/output-%02d.jpg`)
+      .save(`/tmp/tmp/${dirName}/output-%02d.jpg`)
       .on('start', (commandLine: string) =>
         console.log('Command: ' + commandLine)
       )

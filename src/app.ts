@@ -1,5 +1,6 @@
 import { S3Event } from 'aws-lambda';
-import { downloadVideo } from './src/s3Service';
+import { downloadVideo } from './service/s3Service';
+import { videoSplitter } from './utils/splitter';
 
 export const handler = async (event: S3Event): Promise<String | undefined> => {
   // extract the required parameters from the event
@@ -7,8 +8,10 @@ export const handler = async (event: S3Event): Promise<String | undefined> => {
   const key = decodeURIComponent(
     event.Records[0].s3.object.key.replace(/\+/g, '')
   );
-  console.log(`KEY: ${key}`);
+  console.log(`VIDEO: ${key}`);
   // download the video
   const result = await downloadVideo(bucket, key);
+  // extract the frames from the video
+  await videoSplitter(`/tmp/${key}`);
   return result;
 };
