@@ -13,6 +13,7 @@
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.136",
+    "@types/fluent-ffmpeg": "^2.1.24",
     "@types/node": "^20.11.30",
     "esbuild": "0.20.2",
     "typescript": "^5.4.3"
