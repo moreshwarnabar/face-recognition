@@ -3,7 +3,7 @@
     "postinstall": "patch-package",
     "compile": "tsc",
     "prebuild": "rm -rf dist",
-    "postbuild": "cd dist && zip -r index.zip app.js"
+    "postbuild": "cd dist && zip -r index.zip index.js"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.537.0",
