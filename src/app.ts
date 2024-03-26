@@ -12,6 +12,6 @@ export const handler = async (event: S3Event): Promise<String | undefined> => {
   // download the video
   const result = await downloadVideo(bucket, key);
   // extract the frames from the video
-  await videoSplitter(`/tmp/${key}`);
+  await videoSplitter(key);
   return result;
 };

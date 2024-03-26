@@ -1,4 +1,5 @@
 import { GetObjectCommand, S3Client } from '@aws-sdk/client-s3';
+import { NodeJsRuntimeStreamingBlobPayloadOutputTypes } from '@smithy/types';
 import fs from 'node:fs';
 import { writeFile } from 'node:fs/promises';
 
@@ -14,11 +15,8 @@ export const downloadVideo = async (
       new GetObjectCommand({ Bucket: bucket, Key: key })
     );
     console.log('Writing video to file');
-    const body = await response.Body?.transformToString();
-    if (body != undefined) {
-      console.log('Body is present');
-      await writeFile(`/tmp/${key}`, body);
-    }
+    const body = response.Body as NodeJsRuntimeStreamingBlobPayloadOutputTypes;
+    body.pipe(fs.createWriteStream(`/tmp/${key}`));
 
     if (fs.existsSync(`/tmp/${key}`)) {
       console.log('File exists');
