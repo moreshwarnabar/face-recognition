@@ -1,6 +1,6 @@
 import { S3Event } from 'aws-lambda';
-import { downloadVideo, uploadFrames } from './src/service/s3Service';
-import { videoSplitter } from './src/utils/splitter';
+import { downloadVideo, uploadFrames } from './service/s3Service';
+import { videoSplitter } from './utils/splitter';
 import fs from 'node:fs';
 
 export const handler = async (event: S3Event): Promise<String | undefined> => {
