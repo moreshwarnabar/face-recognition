@@ -17,7 +17,6 @@ export const videoSplitter = async (video: string) => {
       .inputFPS(1)
       .seekInput(0)
       .frames(10)
-      .videoFilters('fps=1/10')
       .outputOptions(['-start_number 0'])
       .save(`/tmp/${dirName}/output-%02d.jpg`)
       .on('start', (commandLine: string) =>
