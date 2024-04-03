@@ -2,7 +2,7 @@
   "scripts": {
     "postinstall": "patch-package",
     "compile": "tsc",
-    "build": "esbuild app.ts --bundle --minify --sourcemap --platform=node --target=es2020 --outdir=dist/app.js"
+    "build": "node index.mjs"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.537.0",
