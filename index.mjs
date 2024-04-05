@@ -19,6 +19,6 @@ await esbuild.build({
   sourcemap: true,
   platform: 'node',
   target: 'es2020',
-  outfile: 'dist/index.js',
+  outfile: 'index.js',
   plugins: [resolveFfmpegPlugin],
 });
