@@ -2,7 +2,9 @@
   "scripts": {
     "postinstall": "patch-package",
     "compile": "tsc",
-    "build": "node index.mjs"
+    "prebuild": "rm -rf dist/",
+    "build": "node index.mjs",
+    "postbuild": "cd dist && zip -r index.zip index.js*"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.537.0",
