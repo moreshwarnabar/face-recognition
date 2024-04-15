@@ -17,5 +17,5 @@ def lambda_handler(event, context):
     # write the result to a file
     file_name = write_result(key.split('.')[0], name)
     # upload the result to S3
-    upload_result(bucket, file_name)
+    upload_result(file_name)
     print(f'Uploaded result for {key} into S3')

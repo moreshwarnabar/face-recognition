@@ -13,5 +13,6 @@ def download_frame(bucket, key):
             raise
 
 
-def upload_result(bucket, file_name):
+def upload_result(file_name):
+    bucket = '1229975385-output'
     s3.upload_file(file_name, bucket, file_name)
