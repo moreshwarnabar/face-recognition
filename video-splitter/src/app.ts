@@ -1,7 +1,9 @@
 import { S3Event } from 'aws-lambda';
+import fs from 'node:fs';
+
 import { downloadVideo, uploadFrames } from './service/s3Service';
 import { videoSplitter } from './utils/splitter';
-import fs from 'node:fs';
+import { invokeRecognizer } from './service/lambdaService';
 
 export const handler = async (event: S3Event): Promise<String | undefined> => {
   fs.access(`/tmp`, fs.constants.F_OK, err => {
@@ -20,5 +22,13 @@ export const handler = async (event: S3Event): Promise<String | undefined> => {
   await videoSplitter(key);
   // upload frames to s3 out bucket
   const uploadResult = await uploadFrames(key.split('.')[0]);
+  // invoke the recognizer
+  await invokeRecognizer(
+    'face-recognition',
+    JSON.stringify({
+      bucket,
+      key: `${key.split('.')[0]}.jpg`,
+    })
+  );
   return result;
 };
