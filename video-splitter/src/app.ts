@@ -26,7 +26,7 @@ export const handler = async (event: S3Event): Promise<String | undefined> => {
   await invokeRecognizer(
     'face-recognition',
     JSON.stringify({
-      Bucket: bucket,
+      Bucket: '1229975385-stage-1',
       Key: `${key.split('.')[0]}.jpg`,
     })
   );
