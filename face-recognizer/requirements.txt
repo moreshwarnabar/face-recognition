@@ -1,0 +1,14 @@
+-f https://download.pytorch.org/whl/cpu
+
+boto3
+botocore
+
+imutils
+opencv-python-headless
+pillow
+facenet_pytorch
+numpy
+
+torch==1.13
+torchvision==0.14
+torchaudio==0.13

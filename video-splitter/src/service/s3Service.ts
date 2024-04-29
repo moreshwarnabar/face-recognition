@@ -50,7 +50,8 @@ export const uploadFrames = async (dirName: string) => {
       const input = {
         Body: await readFile(filePath),
         Bucket: '1229975385-stage-1',
-        Key: `${dirName}/${file}`,
+        // Key: `${dirName}/${file}`,
+        Key: file,
       };
       console.log(`Starting upload for ${filePath}`);
       const uploadResult = await s3.send(new PutObjectCommand(input));

@@ -16,9 +16,9 @@ export const videoSplitter = async (video: string) => {
       .input(`/tmp/${video}`)
       .inputFPS(1)
       .seekInput(0)
-      .frames(10)
+      .frames(1)
       .outputOptions(['-start_number 0'])
-      .save(`/tmp/${dirName}/output-%02d.jpg`)
+      .save(`/tmp/${dirName}/${dirName}.jpg`)
       .on('start', (commandLine: string) =>
         console.log('Command: ' + commandLine)
       )
