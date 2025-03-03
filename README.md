@@ -8,7 +8,7 @@ This project implements a cloud-based video processing pipeline using AWS Lambda
 2. **Face Recognition**: Identifies the person in the extracted frame using a pre-trained model and stores the result in an output bucket.  
 
 ## Architecture  
-![Face Recognition Pipeline](assets/architecture-diagram)
+![Face Recognition Pipeline](assets/architecture-diagram.png)
 1. **Input Bucket (`<ASU_ID>-input`)**  
    - Stores uploaded videos.  
    - Uploading a new video triggers the **video-splitting Lambda function**.  
