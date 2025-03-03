@@ -1,5 +1,7 @@
 # Face Recognition Video Processing Pipeline
 
+This is a part of the coursework for the CSE-546 Cloud Computing class at Arizona State University.
+
 ## Overview  
 This project implements a cloud-based video processing pipeline using AWS Lambda and AWS S3. The pipeline consists of two main functions:  
 1. **Video Splitting**: Extracts a single frame from an uploaded video and stores it in an intermediate bucket.  
